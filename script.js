@@ -4,13 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const hoveredImage = document.getElementById('hoveredImage');
     const myIdDiv = document.getElementById('myIdDiv');
 
-    firstVideo.play();
+    //preload - загрузка видео вместе со страницей
+    //loop повторение воспроизведения - для второго.
+
+console.log(firstVideo);
 
     firstVideo.addEventListener('timeupdate', () => {
         if (firstVideo.currentTime >= 6) {
             firstVideo.style.display = 'none';
             secondVideo.style.display = 'block';
-            secondVideo.play();
+           myIdDiv.style.display = 'flex';
         }
     });
 
@@ -22,6 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     myIdDiv.addEventListener('mouseout', () => {
         hoveredImage.style.display = 'none';
         secondVideo.style.display = 'block';
-        secondVideo.play();
     });
 });
+
+object.addEventListener("click", myScript);
+
+

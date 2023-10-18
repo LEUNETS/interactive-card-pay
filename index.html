@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test card interactive</title>
+    <title>Видео и Фото</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <video id="firstVideo" autoplay muted>
-        <source src="firstVideo.MOV" type="video/MOV">
+    <video id="firstVideo" muted autoplay class="video__item" src="firstVideo.MOV"></video>
+    <video id="secondVideo" loop muted autoplay class="video__item" src="secondVideo.MOV">
     </video>
 
+
+
+    
     <div id="myIdDiv">
-        Выбрать тип оплаты
-    </div>
+        Ведите мышь сюда
+ </div>
 
-    <video id="secondVideo" autoplay loop muted>
-        <source src="secondVideo.MOV" type="video2/MOV">
-    </video>
-
-    <img id="hoveredImage" src="hoveredImage.jpg" alt="Фото">
+    <div id="hoveredImage" class="darkTheme" src="hoveredImage.jpg" alt="Темный"> </div>
 
     <script src="script.js"></script>
+
+
 </body>
+
 </html>
