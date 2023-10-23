@@ -9,19 +9,21 @@ body {
 }
 
 .video {
-    position:relative;
+    position: relative;
     z-index: 3;
 }
+
 .video__item2 {
     display: none;
 }
 
 .darkTheme {
     display: none;
-    
+    width: 720px;
+    height: 1280px;
 }
 
-    /* по умолчанию все скрыто */
+/* по умолчанию все скрыто */
 
 #myIdDiv {
     display: none;
@@ -35,13 +37,20 @@ body {
     left: 38%;
     padding: 30px;
     background-color: rgb(154, 148, 148);
-    /* border-radius: 5px; */
-    /* border: 1px solid #dfff11; */
+    /* border-radius: 5px;
+    border: 5px solid #9e0202; */
     cursor: pointer;
-    box-shadow: inset 0 0 0 2px rgba(73, 113, 255, 1);
+    box-shadow: inset 0 0 0 2px #4971ff;
+    transition: 3s;
 }
-
 
 /* Видео как фон css */
 
+#card-form {
+    display: none;
+    padding: 20px;
+}
 
+.hidden {
+    display: none;
+}

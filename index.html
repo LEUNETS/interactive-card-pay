@@ -17,16 +17,50 @@
 
 
 
-    
+    <!-- 
     <div id="myIdDiv">
         Ведите мышь сюда
- </div>
+    </div>
 
-    <img id="hoveredImage" class="darkTheme" src="hoveredImage.jpg" alt="Темный"/> 
+    <form>
+        <input id="number" type="numberCard">
+        <br>
 
-    <script src="script.js"></script>
+        <input id="dateCard" type="date">
+        <br>
+        <input id="saveCard" lebel="Сохранить карту" type="checkbox">
+        <br>
+        <input id="cvv Card" type="cvvCode">
+        <br>
+        <button id="goLoad">Отправить</button>
+        <button id="goCancle">Отменить</button>
+    </form> -->
+
+    <title>Форма для ввода данных карты</title>
+    </head>
+
+    <body>
+        <div id="myIdDiv">
+            <p>Ведите мышь сюда</p>
+        </div>
+        <div id="card-form" class="hidden">
+            <form id="credit-card-form">
+                <label for="card-number">Номер карты:</label>
+                <input type="text" id="card-number" placeholder="Введите номер карты" maxlength="14">
+                <label for="expiry-date">Срок действия:</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5">
+                <label for="cvv">CVV-код:</label>
+                <input type="text" id="cvv" placeholder="CVV" maxlength="3">
+                <button id="remember-card">Запомнить карту</button>
+                <button id="clear-form">Очистить форму</button>
+                <button id="submit-form">Отправить форму</button>
+            </form>
+        </div>
+        <img id="hoveredImage" class="darkTheme" src="hoveredImage.jpg" alt="Темный" />
+
+        <script src="script.js"></script>
 
 
-</body>
+    </body>
 
 </html>
