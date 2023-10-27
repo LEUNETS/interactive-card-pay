@@ -59,6 +59,22 @@ const submitFormButton = document.getElementById('submit-form');
 
 cardNumberInput.addEventListener('input', () => {
     // Позволяет вводить только цифры
+
+    const cardNumberInput = document.getElementById('card-number');
+
+    cardNumberInput.addEventListener('input', function (e) {
+        // Удаляем все нецифровые символы из ввода
+        const cardNumber = e.target.value.replace(/\D/g, '');
+
+        // Разбиваем номер карты на части по 4 цифры
+        const parts = cardNumber.match(/[\s\S]{1,4}/g);
+
+        // Добавляем два пробела между каждой четверкой цифр
+        const formattedCardNumber = parts ? parts.join('  ') : '';
+
+        // Устанавливаем отформатированное значение в поле ввода
+        e.target.value = formattedCardNumber;
+    });
     cardNumberInput.value = cardNumberInput.value.replace(/\D/g, '');
 });
 
@@ -75,21 +91,50 @@ cvvInput.addEventListener('input', () => {
     cvvInput.value = cvvInput.value.replace(/\D/g, '');
 });
 
+// rememberCardButton.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     if (cardNumberInput.value.trim() !== '' && expiryDateInput.value.trim() !== '' && cvvInput.value.trim() !== '') {
+//         localStorage.setItem('cardNumber', cardNumberInput.value);
+//         localStorage.setItem('expiryDate', expiryDateInput.value);
+//         localStorage.setItem('cvv', cvvInput.value);
+//         alert('Данные карты сохранены в кэше браузера');
+//     } 
+//     else {
+//         alert('Заполните все обязательные поля');
+//     }
+// });
+
+// Запись данных в локальное хранилище (кэш браузера)
 rememberCardButton.addEventListener('click', (event) => {
     event.preventDefault();
-    if (rememberCardButton.value.trim() === '' || expiryDateInput.value.trim() === '' || cvvInput.value.trim() === '') {
-        alert('Заполните все обязательные поля');
+    if (cardNumberInput.value.trim() !== '' && expiryDateInput.value.trim() !== '' && cvvInput.value.trim() !== '') {
+        localStorage.setItem('cardNumber', cardNumberInput.value);
+        localStorage.setItem('expiryDate', expiryDateInput.value);
+        localStorage.setItem('cvv', cvvInput.value);
+        alert('Данные карты сохранены в кэше браузера');
     } else {
-        // Здесь можно добавить логику для отправки формы, так как все поля заполнены
-        alert('Карта запомнена!');
+        alert('Заполните все обязательные поля');
     }
-    // Место для доп. логики
 });
 
+// Получение данных из локального хранилища (кэш браузера)
+// Этот код может быть использован при загрузке страницы для проверки наличия сохраненных данных
+const savedCardNumber = localStorage.getItem('cardNumber');
+const savedExpiryDate = localStorage.getItem('expiryDate');
+const savedCVV = localStorage.getItem('cvv');
+
+// Использование данных, полученных из кэша браузера
+if (savedCardNumber && savedExpiryDate && savedCVV) {
+    // Действия с данными, например, предзаполнение формы
+    cardNumberInput.value = savedCardNumber;
+    expiryDateInput.value = savedExpiryDate;
+    cvvInput.value = savedCVV;
+}
+
 clearFormButton.addEventListener('click', (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     // Предотвратить действие по умолчанию (в данном случае, обновление страницы)
-    
+
     cardNumberInput.value = '';
     expiryDateInput.value = '';
     cvvInput.value = '';
@@ -106,4 +151,5 @@ submitFormButton.addEventListener('click', (event) => {
         window.location.reload(); // Перезагрузка страницы
     }
 });
+
 

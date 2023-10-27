@@ -54,9 +54,14 @@ body {
     transition: 2s;
 }
 
-/* #myIdDiv.:hover  {
+
+#myIdDiv:hover,
+#myIdDiv:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
     opacity: 1;
-  } */
+}
 
 /* Видео как фон css */
 
