@@ -22,20 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
         hoveredImage.style.display = 'block';
     });
 
-    myIdDiv.addEventListener('mouseout', () => {
-        hoveredImage.style.display = 'none';
-        secondVideo.style.display = 'block';
-    });
+    // myIdDiv.addEventListener('mouseout', () => {
+    //     hoveredImage.style.display = 'none';
+    //     secondVideo.style.display = 'block';
+    // });
 });
 
 myIdDiv.addEventListener("click", takeCard);
-
 function takeCard() {
-    //alert(1);
+    alert('я просто стрелка');
 };
-
-// console.log(checkNumber)
-///.. Попытка написать самому))
 
 // number.addEventListener("click", checkNumber);
 // function checkNumber() {
@@ -55,12 +51,11 @@ const rememberCardButton = document.getElementById('remember-card');
 const clearFormButton = document.getElementById('clear-form');
 const submitFormButton = document.getElementById('submit-form');
 
-object.addEventListener('click', () => {
-    // при клике меняет на фото
-    cardForm.style.display = 'block';
-});
+// // Получение элемента с классом hidden
+// const hiddenElement = document.getElementById('card-form');
 
-
+// // Удаление класса hidden для отображения элемента
+// hiddenElement.classList.remove('hidden');
 
 cardNumberInput.addEventListener('input', () => {
     // Позволяет вводить только цифры
@@ -80,18 +75,35 @@ cvvInput.addEventListener('input', () => {
     cvvInput.value = cvvInput.value.replace(/\D/g, '');
 });
 
-rememberCardButton.addEventListener('click', () => {
-    alert('Карта запомнена');
+rememberCardButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (rememberCardButton.value.trim() === '' || expiryDateInput.value.trim() === '' || cvvInput.value.trim() === '') {
+        alert('Заполните все обязательные поля');
+    } else {
+        // Здесь можно добавить логику для отправки формы, так как все поля заполнены
+        alert('Карта запомнена!');
+    }
     // Место для доп. логики
 });
 
-clearFormButton.addEventListener('click', () => {
+clearFormButton.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    // Предотвратить действие по умолчанию (в данном случае, обновление страницы)
+    
     cardNumberInput.value = '';
     expiryDateInput.value = '';
     cvvInput.value = '';
 });
 
-submitFormButton.addEventListener('click', () => {
-    alert('Форма отправлена');
-    // Добавьте логику отправки формы здесь
+submitFormButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+    if (cardNumberInput.value.trim() === '' || expiryDateInput.value.trim() === '' || cvvInput.value.trim() === '') {
+        alert('Заполните все обязательные поля');
+    } else {
+        // Здесь можно добавить логику для отправки формы, так как все поля заполнены
+        alert('Товар оплачен!');
+        window.location.reload(); // Перезагрузка страницы
+    }
 });
+

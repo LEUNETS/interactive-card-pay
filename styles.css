@@ -1,4 +1,7 @@
 body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     height: 100%;
     width: 100%;
     line-height: 1;
@@ -6,16 +9,20 @@ body {
     background-color: rgb(71, 70, 70);
     color: aliceblue;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
-/* .background {
-    display: block;
-    z-index: 4;
-} */
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
 
 .video {
     position: relative;
-    z-index: 3;
 }
 
 .video__item2 {
@@ -31,31 +38,59 @@ body {
 /* по умолчанию все скрыто */
 
 #myIdDiv {
-    display: none;
+    display: flex;
     justify-content: center;
-    align-items: center;
-    clip-path: polygon(1% 35%, 84% 12%, 100% 67%, 18% 90%);
+    align-items:flex-end;
+    clip-path: polygon(65% 38%, 41% 45%, 100% 50%, 100% 53%, 41% 56%, 64% 64%, 0% 50%);
     position: absolute;
-    height: 250px;
-    width: 300px;
-    top: 63%;
-    left: 38%;
-    padding: 30px;
-    background-color: rgb(154, 148, 148);
-    /* border-radius: 5px;
-    border: 5px solid #9e0202; */
     cursor: pointer;
-    box-shadow: inset 0 0 0 2px #4971ff;
-    transition: 3s;
+    height: 100px;
+    width: 150px;
+    top: 55%;
+    left: 74%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    border: 25px solid #ffffff;
+    transition: 2s;
 }
+
+/* #myIdDiv.:hover  {
+    opacity: 1;
+  } */
 
 /* Видео как фон css */
 
 #card-form {
-    display: none;
-    padding: 20px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap; */
+
+    padding: 10%;
+    margin: 10%;
 }
 
-.hidden {
-    display: none;
+
+#credit-card-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
 }
+
+input {
+    width: 444px;
+    height: 39px;
+}
+
+button {
+    border-radius: 2px;
+    background-color: rgba(116, 116, 115, 0.292);
+    height: 40px;
+    width: 300px;
+}
+
+/* .hidden {
+    display: none;
+} */
